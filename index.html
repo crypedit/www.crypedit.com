@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="/static/script/jquery.particleground.min.js"></script>
+    <title>Crypedit, credit crypted</title>
+  </head>
+  <body>
+    <div id="particles">
+      <div id="app"></div>
+    </div>
+    <!-- built files will be auto injected -->
+  </body>
+  <script>
+    particleground(document.getElementById('particles'), {
+        dotColor: '#999999',
+        lineColor: '#999999'
+    });
+    var intro = document.getElementById('hello')
+    intro.style.marginTop = - intro.offsetHeight / 2 + 'px'
+  </script>
+</html>
