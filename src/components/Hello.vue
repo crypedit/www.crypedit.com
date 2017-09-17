@@ -1,16 +1,12 @@
 <template>
   <div class="hello">
-    <div id="hello">
-      <h1>{{ msg }}</h1>
-      <h2>{{ slogan }}</h2>
-    </div>
     <vue-particles
-      color="#0e0e0e"
+      color="#aedede"
       :particleOpacity="0.7"
       :particlesNumber="80"
       shapeType="circle"
       :particleSize="4"
-      linesColor="#dedede"
+      linesColor="#aedede"
       :linesWidth="1"
       :lineLinked="true"
       :lineOpacity="0.4"
@@ -22,6 +18,40 @@
       clickMode="push"
     >
     </vue-particles>
+    <div id="hello">
+      <div>
+        <h1>{{ title }}</h1>
+        <h2 id="slogan">{{ slogan }}</h2>
+        <h2 id="slogan_cn">{{ slogan_cn }}</h2>
+      </div>
+      <Carousel id="cards"
+        autoplay
+        :autoplay-speed=5000
+        arrow="always">
+        <CarouselItem>
+          <a href="https://github.com/crypedit/ponzi-TTT">
+          <Card style="width:320px" class="card">
+            <h3 slot="title">Ponzi TTT</h3>
+            <div style="text-align:center">
+              <img src="../assets/ponzi-TTT.png">
+              <p>基于 Ethereum 的知识分享激励合约</p>
+            </div>
+          </Card>
+          </a>
+        </CarouselItem>
+        <CarouselItem>
+          <a href="https://github.com/crypedit/foundate">
+          <Card style="width:320px" class="card">
+            <h3 slot="title">Foundate</h3>
+            <div style="text-align:center">
+              <img src="../assets/foundation.png">
+              <p>基于 Ethereum 的规约资助基金合约</p>
+            </div>
+          </Card>
+          </a>
+        </CarouselItem>
+      </Carousel>
+    </div>
   </div>
 </template>
 
@@ -30,8 +60,9 @@ export default {
   name: 'hello',
   data () {
     return {
-      msg: 'crypedit, credit, crypted',
-      slogan: 'make trust worthy'
+      title: 'crypedit, credit, crypted',
+      slogan: 'make trust worthy',
+      slogan_cn: '让信任值得'
     }
   },
   mounted () {
@@ -43,6 +74,11 @@ export default {
 <style scoped>
 h1, h2 {
   font-weight: normal;
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+}
+
+h1 {
+  font-size: 2.3rem;
 }
 
 ul {
@@ -60,16 +96,34 @@ a {
 }
 
 #hello {
-  z-index: 999;
-  margin-top: 100px;
-  right: 3rem;
+  height: 100%;
+  padding-top: 100px;
+  color: #eeeeee;
+}
+
+#slogan_cn {
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+}
+
+#slogan {
+  font-size: 1.3rem;
+}
+
+#cards {
+  margin: auto;
+  width: 480px;
+}
+
+.card {
+  margin: 50px auto;
+  color: #4f4f4f;
+  opacity: .9;
 }
 
 #particles-js {
-  background-size: cover;
   position: absolute;
-  top: 0;
-  left: 0;
+  background-size: cover;
   width: 100%;
   height: 100%;
 }
